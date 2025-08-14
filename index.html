@@ -36,7 +36,7 @@ html, body {
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgb(27, 27, 27);
       color: #fff;
       z-index: 10;
       display: flex;
@@ -104,63 +104,70 @@ html, body {
     }
 
     /* Hero Section */
-    .hero-section {
-      position: relative;
-      height: 100vh;
+    /* Main content */
+   .container {
+  margin-top: 70px;
+  text-align: center;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+   }
+.product-image {
+  width: 100vw; /* full viewport width */
+  height: 65vh;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* 📱 Mobile Responsive Fix */
+@media (max-width: 768px) {
+  .product-image {
+    height: 45vh; /* thoda kam height for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-image {
+    height: 50vh; /* even smaller for very small phones */
+  }
+}
+
+
+
+
+    .logo-circle {
+      width: 90px;
+      height: 90px;
+      background: white;
+      border: 3px solid #00214d;
+      border-radius: 50%;
       overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: -45px auto 0; /* image ke close laya */
+      position: relative;
+      z-index: 2;
     }
-
-    .slider-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .slider-bg img {
-      position: absolute;
+    .logo-circle img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
+    }
+    h1 {
+      margin: 8px 0 5px;
+      font-size: 70px;
+      font-weight: bold;
+      color: #00214d;
     }
 
-    .slider-bg img.active {
-      opacity: 1;
-    }
 
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1;
-    }
+    .content-wrapper {
+  text-align: center;
+  margin-top: -40px; /* adjust spacing if needed */
+}
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      color: #fff;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    .logo {
-      font-family: 'Great Vibes', cursive;
-      font-size: 120px;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .tagline {
-      font-family: 'Great Vibes', cursive;
-      font-size: 38px;
-      margin: 10px 0 30px;
-      animation: fadeInUp 1.5s ease-out;
-    }
+    
 
     .btn {
       padding: 12px 30px;
@@ -172,6 +179,8 @@ html, body {
       border-radius: 5px;
       transition: all 0.3s ease;
       animation: fadeInUp 2s ease-out;
+      margin-top: 15px;
+
     }
 
     .btn:hover {
@@ -180,31 +189,7 @@ html, body {
       box-shadow: 0 4px 20px rgba(244, 193, 15, 0.5);
     }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 3;
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 50%;
-      transition: background 0.3s;
-    }
-
-    .arrow:hover {
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    .arrow.left {
-      left: 20px;
-    }
-
-    .arrow.right {
-      right: 20px;
-    }
+ 
 
     /* Responsive */
     @media (max-width: 768px) {
@@ -216,13 +201,7 @@ html, body {
         display: block;
       }
 
-      .logo {
-        font-size: 60px;
-      }
-
-      .tagline {
-        font-size: 22px;
-      }
+  
 
       .btn {
         font-size: 16px;
@@ -245,7 +224,7 @@ html, body {
 
   <!-- Navbar -->
   <nav class="navbar">
-    <img src="backgroun1.jpg" alt="Logo" />
+    <img src=""  />
     <div class="navbar-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
@@ -267,36 +246,21 @@ html, body {
     <a href="#footer" onclick="closeMenu()">Contact</a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="home">
-    <!-- Background Slideshow -->
-    <div class="slider-bg">
-      <img src="backgound.webp" class="active" />
-      <img src="backgroun1.jpg" />
-      <img src="backgound2.webp" />
-      <img src="background3.webp" />
+
+
+     <!-- Main Section -->
+      <div class="container-fluid p-0"> <!-- full-width image, no padding -->
+  <img src="backgound2.webp" alt="Foam Mattress" class="product-image">
+
+  <!-- Centered content wrapper -->
+  <div class="content-wrapper">
+    <div class="logo-circle">
+      <img src="backgroun1.jpg" alt="Logo">
     </div>
-
-    <!-- Overlay -->
-    <div class="overlay"></div>
-
-    <!-- Arrows -->
-    <div class="arrow left" onclick="prevSlide()">&#10094;</div>
-    <div class="arrow right" onclick="nextSlide()">&#10095;</div>
-
-    <!-- Content -->
-    <div class="hero-content">
-      <h1 class="logo">Manisha foam industries</h1>
-      <p class="tagline">Comfort Redefined – Sleep Like Never Before</p>
-
-
-        <!-- ✅ UPDATED -->
-<a href="#our-products" class="btn">Explore More</a>
-
-
-      
-    </div>
-  </section>
+    <h1>Manisha Foam Industry</h1>
+    <a href="#our-products" class="btn">Explore More</a>
+  </div>
+</div>
 
   <!-- JavaScript -->
   <script>
@@ -422,129 +386,68 @@ html, body {
 </style>
 
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-
-    <!-- Opening Hours Section -->
-      <div id="timing"></div>
-   <section class="opening-section">
-  <div class="opening-box">
-    <h1>Opening Hours</h1>
-    <p class="day">
-      Monday to Saturday ~ <strong>10:30 AM – 8:00 PM</strong>
-    </p>
-    <p class="day">Sunday ~ <strong>11:30 AM – 4:00 PM</strong></p>
-  </div>
-</section>
-<style>
-    .opening-section {
-  position: relative;
-  background: url('./time\ 1.jpg')
-    center center / cover no-repeat;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* Left aligned */
-  padding-left: 5%;
-}
-
-.opening-box {
-  background: #f5f6fa;
-  padding: 2rem;
-  border-radius: 20px;
-  width: 400px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-.opening-box h1 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.opening-box .day {
-  font-size: 1.1rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.opening-box strong {
-  color: #000;
-}
-
-@media (max-width: 768px) {
-  .opening-box {
-    width: 90%;
-    padding: 1.5rem;
-  }
-
-  .opening-box h1 {
-    font-size: 1.5rem;
-  }
-
-  .opening-box .day {
-    font-size: 1rem;
-  }
-}
-
-</style>
-
-
 
 
 <!-- Materials Section -->
 <section id="materials" style="padding: 60px 20px; background: #fff;">
   <h4 style="text-align: center; font-size: 2.7rem; margin-bottom: 40px; font-family: 'Great Vibes', cursive; color: #555;">
-  Materials
-</h4>
+    Materials
+  </h4>
 
-  <style>
+<style>
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .material-card {
+    position: relative;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.8) translateY(50px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.3s ease;
+  }
+
+  .material-card.animate {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+  }
+
+  .material-card:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 153, 255, 0.3);
+  }
+
+  .material-name {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+  }
+
+  /* 📱 Mobile view ke liye (max-width 600px) */
+  @media (max-width: 600px) {
     .materials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: auto;
+      grid-template-columns: repeat(2, 1fr); /* 2 items per row */
     }
+  }
+</style>
 
-    .material-card {
-      position: relative;
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transform: scale(0.8) translateY(50px);
-      opacity: 0;
-      transition: transform 0.8s ease, opacity 0.8s ease, box-shadow 0.3s ease;
-    }
-
-    .material-card.animate {
-      transform: scale(1) translateY(0px);
-      opacity: 1;
-    }
-
-    .material-card:hover {
-      transform: scale(1.05) translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 153, 255, 0.3);
-    }
-
-    .material-name {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      color: #fff;
-      font-size: 22px;
-      font-weight: bold;
-      font-family: 'Poppins', sans-serif;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
-    }
-  </style>
 
   <div class="materials-grid">
-    <div class="material-card" style="background-image: url('./rebonded\ form.webp');">
+    <div class="material-card" style="background-image: url('./rebonded form.webp');">
       <div class="material-name">Rebonded Foam</div>
     </div>
     <div class="material-card" style="background-image: url('./natural latex.jpg');">
@@ -556,7 +459,7 @@ html, body {
     <div class="material-card" style="background-image: url('./HR FORM.jpg');">
       <div class="material-name">HR Foam</div>
     </div>
-    <div class="material-card" style="background-image: url('./memory\ form.webp');">
+    <div class="material-card" style="background-image: url('./memory form.webp');">
       <div class="material-name">Memory Foam</div>
     </div>
     <div class="material-card" style="background-image: url('./coir form.webp');">
@@ -596,6 +499,10 @@ html, body {
     });
   </script>
 </section>
+
+
+
+
 
 
 <!-- Our Products Section -->
@@ -1011,6 +918,79 @@ function closeLightbox(event) {
     transform: translateY(-6px);
   }
 </style>
+
+
+
+ <!-- Opening Hours Section -->
+      <div id="timing"></div>
+   <section class="opening-section">
+  <div class="opening-box">
+    <h1>Opening Hours</h1>
+    <p class="day">
+      Monday to Saturday ~ <strong>10:30 AM – 8:00 PM</strong>
+    </p>
+    <p class="day">Sunday ~ <strong>11:30 AM – 4:00 PM</strong></p>
+  </div>
+</section>
+<style>
+    .opening-section {
+  position: relative;
+  background: url('./time\ 1.jpg')
+    center center / cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Left aligned */
+  padding-left: 5%;
+}
+
+.opening-box {
+  background: #f5f6fa;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.opening-box h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.opening-box .day {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.opening-box strong {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .opening-box {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .opening-box h1 {
+    font-size: 1.5rem;
+  }
+
+  .opening-box .day {
+    font-size: 1rem;
+  }
+}
+
+</style>
+
+<br>
+<br>
+
+
+
 
 
 <div id="footer"></div>
